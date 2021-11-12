@@ -8,8 +8,10 @@ initializeFirebase();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [adminLoading, setAdminLoading] = useState(true);
     const [authError, setAuthError] = useState('');
     const [admin, setAdmin] = useState(false);
+    
 
 
     const auth = getAuth();
@@ -65,6 +67,11 @@ const useFirebase = () => {
 
                 // const uid = user.uid;
                 setUser(user)
+                setAdminLoading(true);
+                fetch(` https://thawing-bastion-87862.herokuapp.com/users/${user.email}`)
+                .then(res => res.json())
+                .then(data => setAdmin(data.admin))
+                .finally(() => setAdminLoading(false));
             }
             else {
                 setUser({});
@@ -75,11 +82,11 @@ const useFirebase = () => {
     }, [])
 
     //check which user is admin
-    useEffect(() => {
-        fetch(` https://thawing-bastion-87862.herokuapp.com/users/${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user.email]);
+    // useEffect(() => {
+    //     fetch(` https://thawing-bastion-87862.herokuapp.com/users/${user.email}`)
+    //         .then(res => res.json())
+    //         .then(data => setAdmin(data.admin))
+    // }, [user.email]);
 
     //user logout
     const logout = () => {
@@ -107,6 +114,7 @@ const useFirebase = () => {
         logout,
         admin,
         isLoading,
+        adminLoading,
         authError,
     }
 
