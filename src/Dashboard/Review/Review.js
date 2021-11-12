@@ -16,10 +16,7 @@ const Review = () => {
         const description = descriptionRef.current.value;
         const rating = ratingRef.current.value;
 
-        if (rating > 5) {
-            alert("Please give us rating out of five(5)")
-            return;
-        }
+        
         if (description === '' || rating === '') {
             alert('You may mistake an information. Please,  give your information. without information we can not accept your Opinion. ')
             return;
@@ -67,7 +64,7 @@ const Review = () => {
                         <textarea name="" id="" cols="23" rows="3" placeholder="Your opinion" className="mb-2" ref={descriptionRef}></textarea><br />
                         <p>Please, give us your rating out of five(5).</p>
 
-                        <input type="text" placeholder="Your rating" ref={ratingRef} className="mb-2" /><br />
+                        <input type="text" placeholder="Your rating" type="number" max="5" min="0" ref={ratingRef} className="mb-2" /><br />
 
                         <input className="btn btn-success" type="submit" value="Submit" />
                     </form>

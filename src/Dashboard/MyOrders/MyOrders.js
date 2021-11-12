@@ -53,7 +53,13 @@ const MyOrders = () => {
                             <h5>Address: {bike?.address}</h5>
                             <h5>Product: {bike?.product}</h5>
                             <h5>Your order: {bike?.status}</h5>
-                            <button className="btn btn-danger bg-light text-danger mt-2 ms-3 mb-5 " onClick={() => handleCancelOrder(bike._id)}>Cancel Order <MdCancel style={{ marginBottom: '3px' }} /> </button>
+                          {bike?.status === "Shipped..."  ?
+
+                           <p className=" bg-light text-success fs-5 mt-4  mb-4 ">Your Order Approved by an Admin.</p>
+
+                        :  <button className="btn btn-danger bg-light text-danger mt-2 ms-3 mb-2 " onClick={() => handleCancelOrder(bike._id)}>Cancel Order <MdCancel style={{ marginBottom: '3px' }} /> 
+                        </button>  
+                        }
                             <hr />
                         </div>
                     )
@@ -64,3 +70,6 @@ const MyOrders = () => {
 };
 
 export default MyOrders;
+
+{/* <button className="btn btn-danger bg-light text-danger mt-2 ms-3 mb-5 " onClick={() => handleCancelOrder(bike._id)}>Cancel Order <MdCancel style={{ marginBottom: '3px' }} /> 
+                        </button>  */}
