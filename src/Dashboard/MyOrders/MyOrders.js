@@ -71,5 +71,3 @@ const MyOrders = () => {
 
 export default MyOrders;
 
-{/* <button className="btn btn-danger bg-light text-danger mt-2 ms-3 mb-5 " onClick={() => handleCancelOrder(bike._id)}>Cancel Order <MdCancel style={{ marginBottom: '3px' }} /> 
-                        </button>  */}
