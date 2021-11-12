@@ -1,0 +1,22 @@
+.admin-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    margin: 30px; 
+}
+
+@media only screen and (max-width:688px) {
+    .admin-container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media only screen and (min-width:689px) and (max-width:991px) {
+    .admin-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+}
+.single-admin{
+    background-image: url('https://blog.logrocket.com/wp-content/uploads/2020/01/flowers-nocdn.png.gif');
+    background-repeat: no-repeat;
+}
