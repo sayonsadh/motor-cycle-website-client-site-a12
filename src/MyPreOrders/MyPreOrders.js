@@ -53,7 +53,13 @@ const MyPreOrders = () => {
                             <h5>Phone: {bike?.address}</h5>
                             <h5>Product: {bike?.product}</h5>
                             <h5>Your order: {bike?.status}</h5>
-                            <button className="btn btn-danger bg-light text-danger mt-3 mb-2 " onClick={() => handleCancelPreOrder(bike._id)}>Cancel Pre-Order <MdCancel style={{ marginBottom: '3px' }} /> </button>
+                            {bike?.status === "Approved" ?
+
+                                <p className=" bg-light text-success fs-5 mt-4  mb-4 ">Your Pre-Order Approved by an Admin.</p>
+
+                                : <button className="btn btn-danger bg-light text-danger mt-2 ms-3 mb-2 " onClick={() => handleCancelPreOrder(bike._id)}>Cancel Order <MdCancel style={{ marginBottom: '3px' }} />
+                                </button>
+                            }
                         </div>
                     )
                 }
